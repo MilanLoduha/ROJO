@@ -30,7 +30,7 @@ export default function BookingForm() {
     setSubmitStatus('idle');
 
     try {
-      const response = await fetch('https://formspree.io/f/xpwzprvg', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -41,11 +41,8 @@ export default function BookingForm() {
           phone: formData.phone,
           email: formData.email,
           message: formData.message,
-          _subject: `Nová rezervácia od ${formData.name} – ROJO Service`,
         }),
       });
-
-      const result = await response.json();
 
       if (response.ok) {
         setSubmitStatus('success');
