@@ -28,7 +28,7 @@ export async function POST(req: Request) {
 
     await transporter.sendMail({
       from: `"ROJO Service Web" <${smtpUser}>`,
-      to: 'finoland637@gmail.com',
+      to: 'minoloduha@gmail.com',
       replyTo: email,
       subject: `Nová rezervácia od ${name} – ROJO Service`,
       html: `
