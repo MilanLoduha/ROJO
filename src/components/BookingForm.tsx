@@ -1,6 +1,10 @@
 'use client';
 import { useState } from 'react';
-import { Calendar, User, Phone, Mail, FileText, CheckCircle2 } from 'lucide-react';
+import { User, Phone, Mail, FileText, CheckCircle2 } from 'lucide-react';
+
+// Web3Forms access key pre finoland637@gmail.com
+// Získajte kľúč na https://web3forms.com a nastavte ho v Vercel env: WEB3FORMS_KEY
+const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || 'YOUR_KEY_HERE';
 
 export default function BookingForm() {
   const [formData, setFormData] = useState({
@@ -13,7 +17,7 @@ export default function BookingForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -26,13 +30,22 @@ export default function BookingForm() {
     setSubmitStatus('idle');
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch('https://formspree.io/f/xpwzprvg', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          message: formData.message,
+          _subject: `Nová rezervácia od ${formData.name} – ROJO Service`,
+        }),
       });
+
+      const result = await response.json();
 
       if (response.ok) {
         setSubmitStatus('success');
@@ -40,7 +53,7 @@ export default function BookingForm() {
       } else {
         setSubmitStatus('error');
       }
-    } catch (error) {
+    } catch {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -107,7 +120,7 @@ export default function BookingForm() {
                   />
                 </div>
 
-                <div className="space-y-2">
+                <div className="space-y-2 md:col-span-2">
                   <label className="text-gray-300 text-sm font-semibold uppercase tracking-wider flex items-center gap-2">
                     <Mail size={16} className="text-rojo" /> Email
                   </label>
