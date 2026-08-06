@@ -1,4 +1,4 @@
-import { MapPin, Phone, Clock, Facebook } from 'lucide-react';
+import { MapPin, Phone } from 'lucide-react';
 
 export default function Contact() {
   return (
@@ -37,7 +37,9 @@ export default function Contact() {
 
             <div className="glass p-8 rounded-sm flex items-start gap-6 hover:border-rojo border border-transparent transition-colors">
               <div className="bg-rojo-dark p-4 rounded-full text-rojo">
-                <Facebook size={32} />
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg>
               </div>
               <div>
                 <h3 className="text-xl font-bold text-white uppercase tracking-wider mb-2">Sociálne siete</h3>
