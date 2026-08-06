@@ -7,8 +7,6 @@ export default function BookingForm() {
     name: '',
     phone: '',
     email: '',
-    service: 'autoklampiarstvo',
-    date: '',
     message: ''
   });
   
@@ -38,7 +36,7 @@ export default function BookingForm() {
 
       if (response.ok) {
         setSubmitStatus('success');
-        setFormData({ name: '', phone: '', email: '', service: 'autoklampiarstvo', date: '', message: '' });
+        setFormData({ name: '', phone: '', email: '', message: '' });
       } else {
         setSubmitStatus('error');
       }
@@ -123,36 +121,6 @@ export default function BookingForm() {
                     placeholder="vas@email.sk"
                   />
                 </div>
-
-                <div className="space-y-2">
-                  <label className="text-gray-300 text-sm font-semibold uppercase tracking-wider flex items-center gap-2">
-                    <Calendar size={16} className="text-rojo" /> Preferovaný dátum
-                  </label>
-                  <input 
-                    type="date" 
-                    name="date"
-                    value={formData.date}
-                    onChange={handleChange}
-                    className="w-full bg-background border border-gray-700 focus:border-rojo text-white px-4 py-3 rounded-sm outline-none transition-colors focus:ring-1 focus:ring-rojo [color-scheme:dark]"
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <label className="text-gray-300 text-sm font-semibold uppercase tracking-wider flex items-center gap-2">
-                  <User size={16} className="text-rojo" /> Druh služby
-                </label>
-                <select 
-                  name="service"
-                  value={formData.service}
-                  onChange={handleChange}
-                  className="w-full bg-background border border-gray-700 focus:border-rojo text-white px-4 py-3 rounded-sm outline-none transition-colors focus:ring-1 focus:ring-rojo"
-                >
-                  <option value="autoklampiarstvo">Autoklampiarske práce</option>
-                  <option value="offroad">Offroad úpravy áut</option>
-                  <option value="servis">Servis a údržba vozidiel</option>
-                  <option value="ine">Iné / Konzultácia</option>
-                </select>
               </div>
 
               <div className="space-y-2">

@@ -4,7 +4,7 @@ import nodemailer from 'nodemailer';
 export async function POST(req: Request) {
   try {
     const data = await req.json();
-    const { name, phone, email, service, date, message } = data;
+    const { name, phone, email, message } = data;
 
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST || 'smtp.gmail.com',
@@ -18,15 +18,13 @@ export async function POST(req: Request) {
 
     const mailOptions = {
       from: process.env.SMTP_USER,
-      to: process.env.CONTACT_EMAIL || process.env.SMTP_USER,
+      to: 'finoland637@gmail.com',
       subject: `Nová požiadavka: ${name} - ROJO Service`,
       html: `
         <h2>Nová požiadavka z webu ROJO Service</h2>
         <p><strong>Meno:</strong> ${name}</p>
         <p><strong>Telefón:</strong> ${phone}</p>
         <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Služba:</strong> ${service}</p>
-        <p><strong>Preferovaný dátum:</strong> ${date || 'Nezadaný'}</p>
         <br/>
         <p><strong>Správa / Poznámka:</strong></p>
         <p>${message}</p>

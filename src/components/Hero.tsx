@@ -3,12 +3,12 @@ import Link from 'next/link';
 export default function Hero() {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 bg-black">
         <div className="absolute inset-0 bg-gradient-to-b from-rojo-dark/90 via-rojo-dark/70 to-background z-10" />
         <img 
-          src="/hero_bg.png" 
-          alt="Offroad a autoservis" 
-          className="w-full h-full object-cover grayscale opacity-60"
+          src="/rojo-auto.jpg" 
+          alt="ROJO Offroad Service" 
+          className="w-full h-full object-cover opacity-70"
         />
       </div>
       <div className="container mx-auto px-4 z-20 text-center flex flex-col items-center mt-20">

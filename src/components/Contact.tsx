@@ -54,7 +54,7 @@ export default function Contact() {
           {/* Map Embed */}
           <div className="h-[500px] lg:h-auto rounded-sm overflow-hidden border border-gray-800 relative shadow-2xl grayscale hover:grayscale-0 transition-all duration-500">
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m3!1d2638.196328377759!2d18.283188515668615!3d49.07198757930801!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4714856f671bc9d1%3A0xcf6222b647fdbd2f!2sSokolsk%C3%A1%2C%20020%2061%20Lednick%C3%A9%20Rovne%2C%20Slovakia!5e0!3m2!1sen!2sus!4v1714150532298!5m2!1sen!2sus" 
+              src="https://maps.google.com/maps?q=Sokolsk%C3%A1,%20020%2061%20Lednick%C3%A9%20Rovne,%20Slovensko&t=&z=15&ie=UTF8&iwloc=&output=embed" 
               className="absolute inset-0 w-full h-full border-0"
               allowFullScreen={true}
               loading="lazy" 
